@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>LINX</title>
+    <data-title>LINX</data-title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/LINX_BNA_VECTOR2.svg">
@@ -17,7 +17,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
-</head> 
+</head>
 <body style="background-color: black;">
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
@@ -27,7 +27,7 @@
         </div>
     </div>
     
-    <!-- ##### Header Area Start ##### -->
+<!-- ##### Header Area Start ##### -->
     <header class="header-area">
         <!-- Navbar Area -->
         <div class="pixel-main-menu" style="background-color: black;" id="sticker">
@@ -96,41 +96,59 @@
             </div>
         </div>
     </header>
+
+<!-- ##### Header Area end ##### -->
+
+<!-- ##### Separador ##### -->
+
 <section >
     <div class="section-padding-50-0 text-center wow fadeInUp" data-wow-delay="100ms">
         </div>
     <div class="section-padding-50-0 text-center wow fadeInUp" data-wow-delay="100ms">
         </div>
 </section>
+<!-- ##### Separador ##### -->
+
+<!-- ##### nucleo start ##### -->
+
  <section class="hero-area" style="height: 1000px;background-color: black;"> 
     
 <div class='circle-container' >
     
-    <a button id="colaboradores" href='#' style="justify-content: center; align-items: center;"><img src='/img/LINX_blanco_azul_y_rojo.svg'  ></a>
-    <a href='#' class='deg0'><img src='/img/logos/teams/ANALISIS TERMICO.png'> </a>
+    <a class="btnBreath" button id="CirculoCentral" href='#' style="justify-content: center; align-items: center; background-color: black;"><img  src='/img/LINX_blanco_azul_y_rojo.svg'  >
+        <div id="line0" class="Locultos"></div> 
+        <div id="line45" class="Locultos"></div>
+        <div id="line90" class="Locultos"></div>
+        <div id="line135"  class="Locultos"></div>
+        <div id="line180" class="Locultos"></div>
+        <div id="line225" class="Locultos"></div>
+        <div id="line270" class="Locultos"></div>
+        <div id="line315" class="Locultos"></div>
+    </a>
+    <a id="deg0"  data-title="Análisis térmico" href='#' style="justify-content: center; align-items: center;" class='Cocultos colab'><img src='/img/logos/teams/ANALISIS TERMICO.png'> </a>
     
-    <a href='#' class='deg45' ><img src='/img/logos/teams/ELECTRONICA.png'></a>
-    <a href='#' class='deg135' ><img src='/img/logos/teams/INVESTIGACION.png'> <p ></p></a>
-    <a href='#' class='deg180'><img src='/img/logos/teams/MANUFACTURA.png'></a>
-    <a href='#' class='deg225'><img src='/img/logos/teams/MARKETING.png'></a>
-    <a href='#' class='deg315'><img src='/img/logos/teams/PLANEACION.png'></a>
-    <a href='#' class='deg270'><img src='/img/logos/teams/POTENCIA.png'></a>
-    <a href='#' class='deg90'>
+    <a id="deg45"href='#' data-title="Electrónica" class='Cocultos colab' ><img src='/img/logos/teams/ELECTRONICA.png'> </a> 
+    <a id="deg90"href='#' data-title="Investigación" class='Cocultos colab' ><img src='/img/logos/teams/INVESTIGACION.png'> </a>
+    <a id="deg135" href='#' data-title="Manufactura" class='Cocultos colab'><img src='/img/logos/teams/MANUFACTURA.png'></a>
+    <a id="deg180"href='#' data-title="Marketing"  class='Cocultos colab'><img src='/img/logos/teams/MARKETING.png'></a>
+    <a id="deg225" href='#' data-title="Planeación" class='Cocultos colab'><img src='/img/logos/teams/PLANEACION.png'> </a>
+    <a id="deg270"href='#' data-title="Potencia"  class='Cocultos colab'><img src='/img/logos/teams/POTENCIA.png'></a>
+    <a id="deg315" href='#'  data-title="Software" class='Cocultos colab'>
         <img src='/img/logos/teams/SOFTWARE.png'></a>
 </div>
+<!-- ##### Emergente start ##### -->
 
 <div id="emergVentColab" class="modalColab"> 
-    <span class="closeColab">&times;</span>
     <div class="modalColab-content">
 
     <div class="row align-items-center">
-        <img style="max-width: 10%;" src="img/logos/teams/ELECTRONICA.png" alt=""> <h1 class="" style="margin-left:5%;font: roboto;;color: white ;">ELECTRONICA</h1>
+        <img id="area_logo" style="max-width: 10%;" src="" alt=""> <h1 id="area_name" class="" style="margin-left:5%;font: roboto;;color: white ;"></h1>
     </div>
-    <div class="row" style="margin-top:1%">
+    <div class="row align-items-center justify-content-center" style="margin-top:1%">
         <!-- Single Team Member -->
-        <div class="col-12 col-md-6 col-lg-2">
-            <div class="single-team-member mb-100">
-                <img src="img/gato.png" alt="">
+        <div class="col-3 col-md-3 col-lg-3" style="max-width: 20%; max-height: 17%;" >
+            <div class="">
+                <img style="background: transparent;" src=""  alt="">
                 <!-- Hover Text -->
                 <div class="hover-text d-flex align-items-end justify-content-center text-center">
                     <div class="hover--">
@@ -147,7 +165,26 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-2">
+        <div class="col-3 col-md-3 col-lg-3" style="max-width: 20%; max-height: 17%;" >
+            <div class="single-team-member mb-100">
+                <img src="img/gato.png"  alt="">
+                <!-- Hover Text -->
+                <div class="hover-text d-flex align-items-end justify-content-center text-center">
+                    <div class="hover--">
+                        <h4>Gatito</h4>
+                        <h6>astronauta</h6>
+                        <div class="social-info">
+                            <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 col-md-3 col-lg-3" style="max-width: 20%; max-height: 17%;">
             <div class="single-team-member mb-100">
                 <img src="img/gato.png" alt="">
                 <!-- Hover Text -->
@@ -166,7 +203,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-2">
+        <div class="col-3 col-md-3 col-lg-3" style="max-width: 20%; max-height: 17%;" >
             <div class="single-team-member mb-100">
                 <img src="img/gato.png" alt="">
                 <!-- Hover Text -->
@@ -185,7 +222,26 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-2">
+        <div class="col-3 col-md-3 col-lg-3" style="max-width: 20%; max-height: 17%;" >
+            <div class="">
+                <img style="background: transparent;" src=""  alt="">
+                <!-- Hover Text -->
+                <div class="hover-text d-flex align-items-end justify-content-center text-center">
+                    <div class="hover--">
+                        <h4>Gatito</h4>
+                        <h6>astronauta</h6>
+                        <div class="social-info">
+                            <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 col-md-3 col-lg-3" style="max-width: 20%; max-height: 17%;">
             <div class="single-team-member mb-100">
                 <img src="img/gato.png" alt="">
                 <!-- Hover Text -->
@@ -204,7 +260,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-2">
+        <div class="col-3 col-md-3 col-lg-3" style="max-width: 20%; max-height: 17%;">
             <div class="single-team-member mb-100">
                 <img src="img/gato.png" alt="">
                 <!-- Hover Text -->
@@ -223,7 +279,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-2">
+        <div class="col-3 col-md-3 col-lg-3" style="max-width: 20%; max-height: 17%;">
             <div class="single-team-member mb-100">
                 <img src="img/gato.png" alt="">
                 <!-- Hover Text -->
@@ -246,10 +302,12 @@
     </div>
     </div>
 </div>
-
+<!-- ##### Emergente end ##### -->
 </section>  
+<!-- ##### nucleo end ##### -->
 
-    
+<!-- ##### footer start ##### -->
+
     <footer class="footer-area section-padding-100-0">
         <div class="container-fluid">
             <div class="row justify-content-between">
@@ -259,7 +317,7 @@
                     <div class="single-footer-widget mb-100">
                         <!-- Footer Logo -->
                         <a href="index.html" class="footer-logo"><img src="img/LINX_BNA_VECTOR_blanco.svg" alt=""></a>
-                        <br> <p class="text-center widget-title">Laboratorio de Instrumentación Espacial</p> 
+                        <br> <p class="text-center widget-data-title">Laboratorio de Instrumentación Espacial</p> 
                     </div>
                 </div>
 
@@ -269,7 +327,7 @@
                         <!-- Single Footer Widget -->
                         <div class="col-sm-4">
                             <div class="single-footer-widget mb-100">
-                                <h5 class="widget-title">Dirección</h5>
+                                <h5 class="widget-data-title">Dirección</h5>
                                 <p>Insituhto de Ciencias Nucleares, Universidad Nacional Autónoma de México, Apartado Postal 70-543, Ciudad Universitaria, Ciudad de México, México.</p>
                             </div>
                         </div>
@@ -277,7 +335,7 @@
                         <!-- Single Footer Widget -->
                         <div class="col-sm-4">
                             <div class="single-footer-widget mb-100">
-                                <h5 class="widget-title">Teléfono</h5>
+                                <h5 class="widget-data-title">Teléfono</h5>
                                 <p><i class="fa fa-phone"></i> <br> 55-5623-3389</p>
                             </div>
                         </div>
@@ -285,7 +343,7 @@
                         <!-- Single Footer Widget -->
                         <div class="col-sm-4">
                             <div class="single-footer-widget mb-100">
-                                <h5 class="widget-title">Social</h5>
+                                <h5 class="widget-data-title">Social</h5>
                                 <div class="footer-social-info">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     

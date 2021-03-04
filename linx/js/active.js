@@ -5,7 +5,7 @@
 
     // :: 1.0 Preloader Active Code
     browserWindow.on('load', function () {
-        $('.preloader').delay(500).fadeOut('slow', function () {
+        $('.preloader').delay(100).fadeOut('slow', function () {
             $(this).remove();
         });
     });
@@ -19,7 +19,7 @@
         var welcomeSlide = $('.hero-slideshow');
         var testiSlide = $('.testimonial-slides');
 
-        welcomeSlide.owlCarousel({ 
+        welcomeSlide.owlCarousel({
             items: 1,
             loop: true,
             nav: true,
@@ -184,13 +184,30 @@
 
 })(jQuery);
 // Get the modal
+//codigo propio
+var breathingBtn=document.getElementsByClassName("btnBreath")[0];
 var modalAdmin = document.getElementById("emergVentAdmin");
 var modalColab = document.getElementById("emergVentColab");
+var modalColabIMG=document.getElementById('area_logo')
+var modalColabTITLE=document.getElementById('area_name')
 var modal2 = document.getElementById("emergVent2");
+var anal = document.getElementById("analisis");
+var textoAnal = document.getElementById("textoAnal");
+var lineas_ocultas = document.getElementsByClassName("Locultos");
+var img_ocultas = document.getElementsByClassName("Cocultos");
+var lineas_porID=[];
+var img_porID=[];
+for (var i=0;i<lineas_ocultas.length;i++){
+    lineas_porID.push(document.getElementById("line"+(45*i).toString()))
+}
+for (var i=0;i<img_ocultas.length;i++){
+    img_porID.push(document.getElementById("deg"+(45*i).toString()))
+}
+
 
 // Get the button that opens the modal
 var btnAdmin = document.getElementById("admin");
-var btnColab = document.getElementById("colaboradores");
+var btnCirculoCentral = document.getElementById("CirculoCentral");
 var btnSearch = document.getElementById("searchBtn");
 var searchInput = document.getElementById("searchInput");
 var string;
@@ -199,15 +216,70 @@ var spanColab = document.getElementsByClassName("close")[1];
 var spanAdmin = document.getElementsByClassName("close")[0];
 var spanCloseSearch = document.getElementById("closeSearch");
 
-// When the user clicks on the button, open the modal
-
+var json_deg = [{'deg':'deg0', 'img':'/img/logos/teams/ANALISIS TERMICO.png','title':'Análisis Térmico'},
+{'deg':'deg45', 'img':'/img/logos/teams/ELECTRONICA.png','title':'Electricidad'},
+{'deg':'deg90', 'img':'/img/logos/teams/INVESTIGACION.png','title':'Investigación'},
+{'deg':'deg135', 'img':'/img/logos/teams/MANUFACTURA.png','title':'Manufactura'},
+{'deg':'deg180', 'img':'/img/logos/teams/MARKETING.png','title':'Marketing'},
+{'deg':'deg225', 'img':'/img/logos/teams/PLANEACION.png','title':'Planeación'},
+{'deg':'deg270', 'img':'/img/logos/teams/POTENCIA.png','title':'Potencia'},
+{'deg':'deg315', 'img':'/img/logos/teams/SOFTWARE.png','title':'Software'}];
 searchInput.onkeyup=((ev)=>{
     if(ev.key=='Enter'){
         btnSearch.onclick();}
 })
-btnColab.onclick=function(){
+$(".colab").on('click', function(event){
+    json_deg.forEach((item,value)=>{
+        if(item.deg==event.target.id || item.deg==event.target.parentNode.id){
+            modalColabIMG.src=item.img
+            modalColabTITLE.innerText=item.title
+        }
+    })
     modalColab.style.display="block";
+    modalColab.style.zIndex=2
+});
 
+btnCirculoCentral.onclick=function(){
+    if(breathingBtn.classList.contains("btnBreath")){
+        breathingBtn.classList.remove("btnBreath")
+        breathingBtn.style.zIndex=1;
+        //for(var i=0; i<lineas_ocultas.length;i++){
+          //  lineas_ocultas[i].classList.add("line"+str(45*i))
+            //lineas_ocultas[i].classList.remove("ocultos")
+        //}
+        var name=""
+        for (var i=0;i<lineas_porID.length;i++){
+            name='line'+(45*i).toString();
+            lineas_porID[i].classList.add(name)
+            lineas_porID[i].style.zIndex=0;
+            lineas_porID[i].classList.remove("Locultos")
+        }
+        for (var i=0;i<img_porID.length;i++){
+            name='deg'+(45*i).toString();
+            img_porID[i].classList.add(name)
+            img_porID[i].style.zIndex=0;
+            img_porID[i].classList.remove("Cocultos")
+        }
+    }
+    else {
+        breathingBtn.classList.add("btnBreath")
+        
+        var name=""
+        for (var i=0;i<lineas_porID.length;i++){
+            name='line'+(45*i).toString();
+            lineas_porID[i].classList.remove(name)
+            lineas_porID[i].style.zIndex=-1;
+            lineas_porID[i].classList.add("Locultos")
+        }
+        for (var i=0;i<img_porID.length;i++){
+            name='deg'+(45*i).toString();
+            img_porID[i].classList.remove(name)
+            img_porID[i].style.zIndex=0;
+            img_porID[i].classList.add("Cocultos")
+        }
+    }
+
+    
 }
 btnSearch.onclick = function() {
     searchInput.removeAttribute("hidden");
