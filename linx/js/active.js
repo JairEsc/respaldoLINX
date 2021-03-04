@@ -216,14 +216,14 @@ var spanColab = document.getElementsByClassName("close")[1];
 var spanAdmin = document.getElementsByClassName("close")[0];
 var spanCloseSearch = document.getElementById("closeSearch");
 
-var json_deg = [{'deg':'deg0', 'img':'/img/logos/teams/ANALISIS TERMICO.png','title':'Análisis Térmico'},
-{'deg':'deg45', 'img':'/img/logos/teams/ELECTRONICA.png','title':'Electricidad'},
-{'deg':'deg90', 'img':'/img/logos/teams/INVESTIGACION.png','title':'Investigación'},
-{'deg':'deg135', 'img':'/img/logos/teams/MANUFACTURA.png','title':'Manufactura'},
-{'deg':'deg180', 'img':'/img/logos/teams/MARKETING.png','title':'Marketing'},
-{'deg':'deg225', 'img':'/img/logos/teams/PLANEACION.png','title':'Planeación'},
-{'deg':'deg270', 'img':'/img/logos/teams/POTENCIA.png','title':'Potencia'},
-{'deg':'deg315', 'img':'/img/logos/teams/SOFTWARE.png','title':'Software'}];
+var json_deg = [{'deg':'deg0', 'img':'/linx/img/logos/teams/ANALISIS TERMICO.png','title':'Análisis Térmico'},
+{'deg':'deg45', 'img':'/linx/img/logos/teams/ELECTRONICA.png','title':'Electricidad'},
+{'deg':'deg90', 'img':'/linx/img/logos/teams/INVESTIGACION.png','title':'Investigación'},
+{'deg':'deg135', 'img':'/linx/img/logos/teams/MANUFACTURA.png','title':'Manufactura'},
+{'deg':'deg180', 'img':'/linx/img/logos/teams/MARKETING.png','title':'Marketing'},
+{'deg':'deg225', 'img':'/linx/img/logos/teams/PLANEACION.png','title':'Planeación'},
+{'deg':'deg270', 'img':'/linx/img/logos/teams/POTENCIA.png','title':'Potencia'},
+{'deg':'deg315', 'img':'/linx/img/logos/teams/SOFTWARE.png','title':'Software'}];
 searchInput.onkeyup=((ev)=>{
     if(ev.key=='Enter'){
         btnSearch.onclick();}
