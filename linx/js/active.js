@@ -19,7 +19,7 @@
         var welcomeSlide = $('.hero-slideshow');
         var testiSlide = $('.testimonial-slides');
 
-        welcomeSlide.owlCarousel({
+        welcomeSlide.owlCarousel({ 
             items: 1,
             loop: true,
             nav: true,
