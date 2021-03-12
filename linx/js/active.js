@@ -183,7 +183,6 @@
     }
 
 })(jQuery);
-// Get the modal
 //codigo propio
 var breathingBtn=document.getElementsByClassName("btnBreath")[0];
 var modalAdmin = document.getElementById("emergVentAdmin");
@@ -196,12 +195,24 @@ var textoAnal = document.getElementById("textoAnal");
 var lineas_ocultas = document.getElementsByClassName("Locultos");
 var img_ocultas = document.getElementsByClassName("Cocultos");
 var lineas_porID=[];
+var miembros_porID=[];
+var miembros_porID_fotos=[];
 var img_porID=[];
 for (var i=0;i<lineas_ocultas.length;i++){
-    lineas_porID.push(document.getElementById("line"+(45*i).toString()))
+    lineas_porID.push(document.getElementById("line"+(40*i).toString()))
+    if(i==0 || i==1){
+        miembros_porID.push(document.getElementById("miembro"+i.toString()));
+        miembros_porID_fotos.push(document.getElementById("area_logo"+i.toString()));
+        console.log("area_logo"+i.toString())
+    }
+    else{
+        miembros_porID.push(document.getElementById("miembro"+(i%2==0?  (-i/2) : (i+1)/2 ).toString()))
+        miembros_porID_fotos.push(document.getElementById("area_logo"+(i%2==0? (-i/2) : (i+1)/2 ).toString()))
+        console.log("area_logo"+(i%2==0? (-i/2) : (i+1)/2 ).toString())
+    }
 }
 for (var i=0;i<img_ocultas.length;i++){
-    img_porID.push(document.getElementById("deg"+(45*i).toString()))
+    img_porID.push(document.getElementById("deg"+(40*i).toString()))
 }
 
 
@@ -217,13 +228,30 @@ var spanAdmin = document.getElementsByClassName("close")[0];
 var spanCloseSearch = document.getElementById("closeSearch");
 
 var json_deg = [{'deg':'deg0', 'img':'/linx/img/logos/teams/ANALISIS TERMICO.png','title':'Análisis Térmico'},
-{'deg':'deg45', 'img':'/linx/img/logos/teams/ELECTRONICA.png','title':'Electricidad'},
-{'deg':'deg90', 'img':'/linx/img/logos/teams/INVESTIGACION.png','title':'Investigación'},
-{'deg':'deg135', 'img':'/linx/img/logos/teams/MANUFACTURA.png','title':'Manufactura'},
-{'deg':'deg180', 'img':'/linx/img/logos/teams/MARKETING.png','title':'Marketing'},
-{'deg':'deg225', 'img':'/linx/img/logos/teams/PLANEACION.png','title':'Planeación'},
-{'deg':'deg270', 'img':'/linx/img/logos/teams/POTENCIA.png','title':'Potencia'},
-{'deg':'deg315', 'img':'/linx/img/logos/teams/SOFTWARE.png','title':'Software'}];
+{'deg':'deg40', 'img':'/linx/img/logos/teams/ELECTRONICA.png','title':'Electricidad'},
+{'deg':'deg80', 'img':'/linx/img/logos/teams/INVESTIGACION.png','title':'Investigación'},
+{'deg':'deg120', 'img':'/linx/img/logos/teams/MANUFACTURA.png','title':'Manufactura'},
+{'deg':'deg160', 'img':'/linx/img/logos/teams/MARKETING.png','title':'Marketing'},
+{'deg':'deg200', 'img':'/linx/img/logos/teams/PLANEACION.png','title':'Planeación'},
+{'deg':'deg240', 'img':'/linx/img/logos/teams/POTENCIA.png','title':'Potencia'},
+{'deg':'deg280', 'img':'/linx/img/logos/teams/SOFTWARE.png','title':'Software'},
+{'deg':'deg320', 'img':'/linx/img/logos/teams/SIMULACION.png','title':'Simulación'}];
+
+var json_miembros=[{'area':'Análisis Térmico', 'miembros':[{'nombre': 'PABLO CABRERA', 'img':'linx/img/logos/teams/ÁREA DE MECÁNICA- ANÁLISIS TÉRMICO PABLO CABRERA/PABLO CABRERA.png', 'carrera':'Licenciado en Física'},{'nombre': 'Espinosa Hernandez Allan Ricardo', 'img':'linx/img/logos/teams/ÁREA DE MECÁNICA- ANÁLISIS TÉRMICO PABLO CABRERA/Allan Ricardo Espinosa Hernandez.jpg', 'carrera':'Ingenieria Mecánica'}]  },
+{'area':'Electricidad', 'miembros':[{'nombre': 'MARCO CARBAJAL', 'img':'linx/img/logos/teams/ÁREA DE ELECTRÓNICA- POTENCIA-MARCO CARBAJAL/MARCO CARBAJAL.jpeg', 'carrera':'Maestro en Ciencias de Ingeniería'}]},
+{'area':'Investigación', 'miembros': [{'nombre': 'ALDO ROMÁN', 'img':'linx/img/logos/teams/ÁREA DE INVESTIGACIÓN-ALDO ROMÁN/ALDO ROMÁN.jpeg', 'carrera':'Licenciado en Física '}] },
+{'area':'Manufactura','miembros':[{'nombre': 'ERNESTO LÓPEZ', 'img':'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/ERNESTO LÓPEZ.jpeg', 'carrera':'Ingeniero en Mecatrónica'},{'nombre':'Cabrera García Lizbet Gisela', 'img':'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/Lizbet Gisela Cabrera Garcia.jpg','carrera':'Ingeniería Aeronáutica'},{'nombre':'González Maravilla Eduardo David' ,'img':'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/Eduardo David Gonzalez Maravilla.jpg','carrera':'Ingeniería Mecánica'}, {'nombre':'Rámirez Castañon Jorge Francisco' ,'img':'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/Jorge Francisco Ramírez Castañón.jpg','carrera':'Ingeniería Mecatrónica'}]  },
+{'area':'Marketing', 'miembros':[{'nombre': 'LUISA FLORES', 'img':'linx/img/logos/teams/ÁREA DE MARKETING DE TALENTO-LUISA FLORES/LUISA FLORES.jpg', 'carrera':'Licenciada en Psicología'}, {'nombre': 'Reyes Franco Carlos Augusto', 'img':'', 'carrera':'Arquitectura'},{'nombre': 'Escobar Sánchez Jair', 'img':'', 'carrera':'Matemático'} ]},
+{'area':'Planeación', 'miembros':[{'nombre': 'CLAUDIA PATRICIO', 'img':'linx/img/logos/teams/ÁREA DE PLANEACIÓN-CLAUDIA PATRICIO/CLAUDIA PATRICIO.jpg', 'carrera':'Ingeniera Industrial'}]  },
+{'area':'Potencia', 'miembros':[] },
+{'area':'Software', 'miembros':[{'nombre': 'LEONARDO LÓPEZ', 'img':'', 'carrera':'Ingeniero en Telecomunicaciones'},{'nombre': 'Castillo Alcántara Rodrigo', 'img':'', 'carrera':'Ingeniería Eléctrica Electrónica'},{'nombre': 'De Aquino López José Manuel', 'img':'', 'carrera':'Física'},{'nombre': 'Guzmán Torres Elena', 'img':'', 'carrera':'Ingeniería en Telecomunicaciones'},{'nombre': 'Mendoza Bedolla Rebeca', 'img':'', 'carrera':'Ingeniería Eléctrica- Electrónica'},{'nombre': 'Salazar Pérez Eduardo', 'img':'', 'carrera':'Ingeniería Mecatrónica'},{'nombre': 'Silva López David Alejandro', 'img':'', 'carrera':'Ingeniería Eléctrica- Electrónica'}] }]
+
+var b=[{'nombre': 'DAVID PADILLA', 'img':'linx/img/logos/teams/SIMULACIÓN Y CARGA DAVID PADILLA/DAVID PADILLA.jpeg', 'carrera':'Ingeniero Mecánico'}, {'nombre': 'Caracheo González José Jorge', 'img':'', 'carrera':'Ingeniería Geológica'},{'nombre': 'De la Rosa Avila Edgar', 'img':'', 'carrera':'Ingeniería Mecánica'},{'nombre': 'Paz Hernández Ricardo', 'img':'', 'carrera':'Ingeniería Mecánica'},{'nombre': 'Zuñiga Contretas Fernando David', 'img':'', 'carrera':'Ingeniería Mecánica'}] 
+
+var a=[{'nombre': 'JUAN CARLOS SÁNCHEZ ', 'img':'linx/img/logos/teams/INSTRUMENTACIÓN- JUAN CARLOS SÁNCHEZ/JUAN CARLOS SÁNCHEZ.jpeg', 'carrera':'Técnico Académico Asociado'},{'nombre':'Cortés Rosales José Francisco', 'img':'linx/img/logos/teams/INSTRUMENTACIÓN- JUAN CARLOS SÁNCHEZ/José Francisco Cortes Rosales.JPG','carrera':'Ingeniería Robótica Industrial'},{'nombre':'Martínez Jiménez Mayra' ,'img':'linx/img/logos/teams/INSTRUMENTACIÓN- JUAN CARLOS SÁNCHEZ/Mayra Martínez Jiménez.jpeg','carrera':'Ingeniería en Comunicaciones y Electrónica'} ]
+
+
+
 searchInput.onkeyup=((ev)=>{
     if(ev.key=='Enter'){
         btnSearch.onclick();}
@@ -233,12 +261,28 @@ $(".colab").on('click', function(event){
         if(item.deg==event.target.id || item.deg==event.target.parentNode.id){
             modalColabIMG.src=item.img
             modalColabTITLE.innerText=item.title
+            json_miembros.forEach((elem,value)=>{
+                if(elem.area==item.title){
+                    if(elem.miembros.length%2==0){
+                        miembros_porID[0].childNodes[1].innerHTML=""
+                        miembros_porID_fotos[0].style.background='transparent'
+                        for (var i=1;i<elem.miembros.length;i++){
+                            miembros_porID[i].childNodes[1].innerHTML=elem.miembros[i].nombre
+                            miembros_porID_fotos[i].src=elem.miembros[i].img
+                        }
+                    }
+                    else{
+                        miembros_porID[0].childNodes[1].innerHTML="aaaa"
+                    }
+                }
+            })
         }
     })
+    
     modalColab.style.display="block";
     modalColab.style.zIndex=2
 });
-
+if (btnCirculoCentral){
 btnCirculoCentral.onclick=function(){
     if(breathingBtn.classList.contains("btnBreath")){
         breathingBtn.classList.remove("btnBreath")
@@ -249,13 +293,13 @@ btnCirculoCentral.onclick=function(){
         //}
         var name=""
         for (var i=0;i<lineas_porID.length;i++){
-            name='line'+(45*i).toString();
+            name='line'+(40*i).toString();
             lineas_porID[i].classList.add(name)
             lineas_porID[i].style.zIndex=0;
             lineas_porID[i].classList.remove("Locultos")
         }
         for (var i=0;i<img_porID.length;i++){
-            name='deg'+(45*i).toString();
+            name='deg'+(40*i).toString();
             img_porID[i].classList.add(name)
             img_porID[i].style.zIndex=0;
             img_porID[i].classList.remove("Cocultos")
@@ -266,13 +310,13 @@ btnCirculoCentral.onclick=function(){
         
         var name=""
         for (var i=0;i<lineas_porID.length;i++){
-            name='line'+(45*i).toString();
+            name='line'+(40*i).toString();
             lineas_porID[i].classList.remove(name)
             lineas_porID[i].style.zIndex=-1;
             lineas_porID[i].classList.add("Locultos")
         }
         for (var i=0;i<img_porID.length;i++){
-            name='deg'+(45*i).toString();
+            name='deg'+(40*i).toString();
             img_porID[i].classList.remove(name)
             img_porID[i].style.zIndex=0;
             img_porID[i].classList.add("Cocultos")
@@ -281,8 +325,12 @@ btnCirculoCentral.onclick=function(){
 
     
 }
+}
 btnSearch.onclick = function() {
+    console.log("a")
+
     searchInput.removeAttribute("hidden");
+
 
     for (var i=0;i<100;i++){
         if(document.getElementById("resultado"+i.toString())){
@@ -297,7 +345,8 @@ btnSearch.onclick = function() {
     searchInput.focus();
     searchInput.style.width='100px';
     if(searchInput.value.length>0){
-        console.log(searchInput.value);
+        console.log(modal2);
+
         modal2.style.display="block";
         console.log(filtro(searchInput.value));
 

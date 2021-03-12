@@ -660,11 +660,11 @@ img {
       }
     .single-slide2 .welcome-text a {
       font-size: 72px;
-      color: #ffffff;
+      color: blue;
       align-content: center;
       }
       .single-slide2 .welcome-text a:hover  {
-        color:blue;
+        color:rgb(0, 183, 255);;
         }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
         .single-slide2 .welcome-text h2 {
@@ -1936,7 +1936,7 @@ a[data-title]:hover::after {
 .circle-container a:hover{
   border-color:blue;
 }
-.circle-container img { display:flex; width: 40%; height:auto;}
+.circle-container img { display:flex; width: 70%; height:auto;}
 .line0 {
   width: 11em;
   height: 1px;
@@ -1948,70 +1948,79 @@ a[data-title]:hover::after {
   animation-fill-mode: forwards;
 
 }
-.line45 {
+.line40 {
   width: 11em;
   height: 1px;
   border-bottom: 1px solid white;
   position: absolute;
-  animation: movin45 2s linear ;
+  animation: movin40 2s linear ;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 
 }
-.line90 {
+.line80 {
   width: 11em;
   height: 1px;
   border-bottom: 1px solid white;
   position: absolute;
-  animation: movin90 2s linear ;
+  animation: movin80 2s linear ;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 
 }
-.line135 {
+.line120 {
   width: 11em;
   height: 1px;
   border-bottom: 1px solid white;
   position: absolute;
-  animation: movin135 2s linear ;
+  animation: movin120 2s linear ;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 
 }
-.line180 {
+.line160 {
   width: 11em;
   height: 1px;
   border-bottom: 1px solid white;
   position: absolute;
-  animation: movin180 2s linear ;
+  animation: movin160 2s linear ;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
-.line225 {
+.line200 {
   width: 11em;
   height: 1px;
   border-bottom: 1px solid white;
   position: absolute;
-  animation: movin225 2s linear ;
+  animation: movin200 2s linear ;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 
 }
-.line270 {
+.line240 {
   width: 11em;
   height: 1px;
   border-bottom: 1px solid white;
   position: absolute;
-  animation: movin270 2s linear ;
+  animation: movin240 2s linear ;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
-.line315 {
+.line280 {
   width: 11em;
   height: 1px;
   border-bottom: 1px solid white;
   position: absolute;
-  animation: movin315 2s linear ;
+  animation: movin280 2s linear ;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+.line320 {
+  width: 11em;
+  height: 1px;
+  border-bottom: 1px solid white;
+  position: absolute;
+  animation: movin320 2s linear ;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -2030,116 +2039,132 @@ a[data-title]:hover::after {
       rotate(0deg); 
   }
 }
-@keyframes movin45 {
+@keyframes movin40 {
   0% {
-    -webkit-transform:
-      translateY(0px)
-      translateX(0em)
-      rotate(45deg); 
-      opacity:0%
-
-  }
-  100% {
-    -webkit-transform:
-      translateY(-7.07em)
-      translateX(-7.07em)
-      rotate(45deg); 
-  }
-}
-@keyframes movin90 {
-  0% {
-    -webkit-transform:
-      translateY(0px)
-      translateX(0em)
-      rotate(90deg); 
-      opacity:0%
-
-  }
-  100% {
-    -webkit-transform:
-      translateY(-10em)
-      translateX(0em)
-      rotate(90deg); 
-  }
-}
-@keyframes movin135 {
-  0% {
-    -webkit-transform:
-      translateY(0px)
-      translateX(0em)
-      rotate(135deg); 
-      opacity:0%
-
-  }
-  100% {
-    -webkit-transform:
-      translateY(7.07em)
-      translateX(-7.07em)
-      rotate(135deg); 
-  }
-}
-@keyframes movin180 {
-  0% {
-    -webkit-transform:
-      translateY(0px)
-      translateX(0em)
-      rotate(180deg); 
-      opacity:0%
-
-  }
-  100% {
     -webkit-transform:
       translateY(0em)
-      translateX(-10em)
-      rotate(180deg); 
-  }
-}
-@keyframes movin225 {
-  0% {
-    -webkit-transform:
-      translateY(0px)
       translateX(0em)
-      rotate(225deg); 
+      rotate(40deg); 
       opacity:0%
 
   }
   100% {
     -webkit-transform:
-      translateY(7.07em)
-      translateX(7.07em)
-      rotate(225deg); 
+      translateY(6.4278em)
+      translateX(7.66em)
+      rotate(40deg); 
   }
 }
-@keyframes movin270 {
+@keyframes movin80 {
   0% {
     -webkit-transform:
       translateY(0px)
       translateX(0em)
-      rotate(270deg);
+      rotate(80deg); 
+      opacity:0%
+
+  }
+  100% {
+    -webkit-transform:
+      translateY(9.848em)
+      translateX(1.736em)
+      rotate(80deg); 
+  }
+}
+@keyframes movin120 {
+  0% {
+    -webkit-transform:
+      translateY(0px)
+      translateX(0em)
+      rotate(120deg); 
+      opacity:0%
+
+  }
+  100% {
+    -webkit-transform:
+      translateY(8.660em) 
+      translateX(-5em)
+      rotate(120deg); 
+  }
+}
+@keyframes movin160 {
+  0% {
+    -webkit-transform:
+      translateY(0px)
+      translateX(0em)
+      rotate(160deg); 
+      opacity:0%
+
+  }
+  100% {
+    -webkit-transform:
+      translateY(3.42em)
+      translateX(-9.39em)
+      rotate(160deg); 
+  }
+}
+@keyframes movin200 {
+  0% {
+    -webkit-transform:
+      translateY(0px)
+      translateX(0em)
+      rotate(200deg); 
+      opacity:0%
+
+  }
+  100% {
+    -webkit-transform:
+      translateY(-3.42em)
+      translateX(-9.393em)
+      rotate(200deg); 
+  }
+}
+@keyframes movin240 {
+  0% {
+    -webkit-transform:
+      translateY(0px)
+      translateX(0em)
+      rotate(240deg);
       opacity:0%
  
   }
   100% {
     -webkit-transform:
-      translateY(10em)
-      translateX(0em)
-      rotate(270deg); 
+      translateY(-8.66em)
+      translateX(-5em)
+      rotate(240deg); 
   }
 }
-@keyframes movin315 {
+@keyframes movin280 {
   0% {
     -webkit-transform:
       translateY(0px)
       translateX(0em)
-      rotate(315deg); 
+      rotate(280deg); 
       opacity:0%
 
   }
   100% {
     -webkit-transform:
-      translateY(-7.07em)
-      translateX(7.07em)
-      rotate(315deg); 
+    translateY(-9.848em)
+    translateX(1.736em)
+    rotate(280deg); 
+  }
+}
+@keyframes movin320 {
+  0% {
+    -webkit-transform:
+      translateY(0px)
+      translateX(0em)
+      rotate(320deg); 
+      opacity:0%
+
+  }
+  100% {
+    -webkit-transform:
+      translateY(-6.4278em)
+      translateX(7.66em)
+      rotate(320deg); 
   }
 }
 .btnBreath{
@@ -2181,26 +2206,29 @@ a[data-title]:hover::after {
 .deg0 {transform: translate(20em); transition: 2s ease-in-out; 
 
   animation-delay: 50ms;} /* 12em = half the width of the wrapper */
-.deg45 { transform: rotate(45deg) translate(20em) rotate(-45deg);   transition: 2s ease-in-out; 
+.deg40 { transform: rotate(40deg) translate(20em) rotate(-40deg);   transition: 2s ease-in-out; 
 
   animation-delay: 50ms;
 }
-.deg135 { transform: rotate(135deg) translate(20em) rotate(-135deg);   transition: 2s ease-in-out;animation-delay: 50ms; 
+.deg120 { transform: rotate(120deg) translate(20em) rotate(-120deg);   transition: 2s ease-in-out;animation-delay: 50ms; 
 
 }
-.deg180 { transform: translate(-20em);   transition: 2s ease-in-out;animation-delay: 50ms; 
+.deg160 { transform:rotate(160deg) translate(20em) rotate(-160deg);   transition: 2s ease-in-out;animation-delay: 50ms; 
 
 }
-.deg225 { transform: rotate(225deg) translate(20em) rotate(-225deg);   transition: 2s ease-in-out;animation-delay: 50ms; 
+.deg200 { transform: rotate(200deg) translate(20em) rotate(-200deg);   transition: 2s ease-in-out;animation-delay: 50ms; 
 
 }
-.deg315 { transform: rotate(315deg) translate(20em) rotate(-315deg);  transition: 2s ease-in-out;animation-delay: 50ms; 
+.deg240 { transform: rotate(240deg) translate(20em) rotate(-240deg);  transition: 2s ease-in-out;animation-delay: 50ms; 
 
 }
-.deg90 { transform: rotate(90deg) translate(20em) rotate(-90deg);  transition: 2s ease-in-out;animation-delay: 50ms; 
+.deg80 { transform: rotate(80deg) translate(20em) rotate(-80deg);  transition: 2s ease-in-out;animation-delay: 50ms; 
 
 }
-.deg270 { transform: rotate(270deg) translate(20em) rotate(-270deg);   transition: 2s ease-in-out;animation-delay: 50ms; 
+.deg280 { transform: rotate(280deg) translate(20em) rotate(-280deg);   transition: 2s ease-in-out;animation-delay: 50ms; 
+
+}
+.deg320 { transform: rotate(320deg) translate(20em) rotate(-320deg);   transition: 2s ease-in-out;animation-delay: 50ms; 
 
 }
 
