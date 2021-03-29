@@ -375,12 +375,12 @@ img {
 }
 
 .tooltip-inner {
-    background-color: blue;
+    background-color: #1C418C;
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
 }
 
 .tooltip .arrow::before {
-    border-bottom-color: blue;
+    border-bottom-color: #1C418C;
 }
 
 .bg-img {
@@ -455,11 +455,19 @@ img {
     font-weight: 700;
     box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.15);
     text-transform: uppercase;
-    background: url('/linx/img/logos/COLMENA-INICIO.png'), no-repeat;
+    background: url('/linx/img/logos/divulgacion/GLOBO.jpg'), no-repeat;
     background-size: 95% 80%;
     width: 50px;
     height: 116px;
     display: block;
+}
+
+.transicion {
+    -webkit-transition: opacity 1.5s ease-in-out;
+    -moz-transition: opacity 1.5s ease-in-out;
+    -ms-transition: opacity 1.5s ease-in-out;
+    -o-transition: opacity 1.5s ease-in-out;
+    transition: opacity 1.5s ease-in-out;
 }
 
 #scrollUp i {
@@ -474,7 +482,7 @@ img {
     -webkit-transition-duration: 500ms;
     -o-transition-duration: 500ms;
     transition-duration: 500ms;
-    background-color: blue;
+    background-color: #1C418C;
     position: relative;
     display: inline-block;
     min-width: 170px;
@@ -513,7 +521,7 @@ img {
 
 .pixel-btn.btn-2:hover,
 .pixel-btn.btn-2:focus {
-    background-color: blue;
+    background-color: #1C418C;
     color: #ffffff;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
 }
@@ -528,9 +536,9 @@ img {
 .pixel-btn.btn-3:hover,
 .pixel-btn.btn-3:focus {
     background-color: transparent;
-    color: blue;
+    color: #1C418C;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
-    border: 2px solid blue;
+    border: 2px solid #1C418C;
 }
 
 
@@ -599,7 +607,7 @@ img {
 
 .header-area .pixel-main-menu .classy-navbar .classynav ul li a:hover,
 .header-area .pixel-main-menu .classy-navbar .classynav ul li a:focus {
-    color: blue;
+    color: #1C418C;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -730,8 +738,8 @@ img {
 
 .header-area .top-social-info a:hover,
 .header-area .top-social-info a:focus {
-    border-color: blue;
-    color: blue;
+    border-color: #1C418C;
+    color: #1C418C;
 }
 
 .header-area .is-sticky .pixel-main-menu {
@@ -748,6 +756,13 @@ img {
 
 .hero-area {
     position: relative;
+}
+
+.menu_inter {
+    position: relative;
+    height: 1000px;
+    background-color: black;
+    margin: 0 auto;
 }
 
 .hero-area .owl-prev,
@@ -786,7 +801,7 @@ img {
 
 .hero-area .owl-prev:hover,
 .hero-area .owl-next:hover {
-    color: blue;
+    color: #1C418C;
 }
 
 .hero-area .owl-next {
@@ -811,7 +826,6 @@ img {
     z-index: 99;
     width: 100%;
     height: 970px;
-    background-color: #ffffff;
     overflow: hidden;
 }
 
@@ -881,16 +895,25 @@ img {
     .single-slide {
         height: 700px;
     }
+    .single-slide2 {
+        height: 700px;
+    }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .single-slide {
         height: 600px;
     }
+    .single-slide2 {
+        height: 600px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
     .single-slide {
+        height: 550px;
+    }
+    .single-slide2 {
         height: 550px;
     }
 }
@@ -928,13 +951,34 @@ img {
 
 .single-slide2 .welcome-text a {
     font-size: 72px;
-    color: blue;
+    color: #1C418C;
     align-content: center;
 }
 
 .single-slide2 .welcome-text a:hover {
     color: rgb(0, 183, 255);
     ;
+}
+
+.single-slide3 {
+    position: relative;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: block;
+}
+
+.single-slide3 .slide-bg-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -12;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: inline-flex;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -1078,7 +1122,7 @@ img {
 }
 
 .top-catagory-area .single-catagory a:hover {
-    color: blue
+    color: #1C418C
 }
 
 
@@ -1128,7 +1172,7 @@ img {
 }
 
 .nl-area .nl-form form input:focus {
-    border-bottom-color: blue;
+    border-bottom-color: #1C418C;
 }
 
 
@@ -1137,6 +1181,7 @@ img {
 .pixel-projects-menu {
     position: relative;
     margin-bottom: 30px;
+    width: 100%;
 }
 
 .pixel-projects-menu .btn {
@@ -1150,11 +1195,19 @@ img {
     border: 2px solid transparent;
 }
 
+.btnRotate {
+    width: 5%;
+    transform: rotate(270deg);
+    -webkit-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
 .pixel-projects-menu .btn.active,
 .pixel-projects-menu .btn:focus {
     box-shadow: none;
-    color: blue;
-    border-color: blue;
+    color: #1C418C;
+    border-color: #1C418C;
 }
 
 #mom {
@@ -1399,10 +1452,10 @@ img {
     right: 0;
     z-index: 100;
     padding-bottom: 25px;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 121, 2, 0)), to(blue));
-    background-image: -webkit-linear-gradient(top, rgba(255, 121, 2, 0), blue);
-    background-image: -o-linear-gradient(top, rgba(255, 121, 2, 0), blue);
-    background-image: linear-gradient(to bottom, rgba(255, 121, 2, 0), blue);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 121, 2, 0)), to(#184A8C));
+    background-image: -webkit-linear-gradient(top, rgba(255, 121, 2, 0), #184A8C);
+    background-image: -o-linear-gradient(top, rgba(255, 121, 2, 0), #184A8C);
+    background-image: linear-gradient(to bottom, rgba(255, 121, 2, 0), #184A8C);
     opacity: 0;
     visibility: hidden;
 }
@@ -1414,10 +1467,18 @@ img {
 
 .single-team-member .hover-text h6 {
     font-size: 14px;
-    margin-bottom: 15px;
+    color: #ffffff;
+    display: flex;
+    top: 100%;
+    background-color: black;
+}
+
+.single-team-member .hover-text h5 {
+    font-size: 14px;
     color: #ffffff;
     display: block;
     background-color: black;
+    position: relative;
 }
 
 .single-team-member .hover-text .social-info a {
@@ -1479,7 +1540,7 @@ img {
 .testimonial-slides .owl-dots .owl-dot.active {
     width: 12px;
     height: 12px;
-    background-color: blue;
+    background-color: #1C418C;
 }
 
 .single-testimonial-slide {
@@ -1675,8 +1736,8 @@ img {
 
 .footer-area .single-footer-widget .footer-social-info a:hover,
 .footer-area .single-footer-widget .footer-social-info a:focus {
-    border-color: blue;
-    color: blue;
+    border-color: #1C418C;
+    color: #1C418C;
 }
 
 .footer-area .copywrite-area {
@@ -1859,14 +1920,14 @@ img {
 .pagination .page-item .page-link:hover,
 .pagination .page-item .page-link:focus {
     color: #ffffff;
-    background-color: blue;
-    border-color: blue;
+    background-color: #1C418C;
+    border-color: #1C418C;
 }
 
 .pagination .page-item.active .page-link {
     color: #ffffff;
-    background-color: blue;
-    border-color: blue;
+    background-color: #1C418C;
+    border-color: #1C418C;
 }
 
 
@@ -2221,7 +2282,7 @@ img {
 .contact-form-area textarea:focus {
     background-color: #f6f6f6;
     box-shadow: none;
-    border-bottom-color: blue;
+    border-bottom-color: #1C418C;
 }
 
 .contact-form-area textarea {
@@ -2359,7 +2420,7 @@ img {
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 600;
-    color: blue;
+    color: #1C418C;
 }
 
 .single-service-area a:hover,
@@ -2376,7 +2437,7 @@ img {
 
 .single-service-area:hover h5,
 .single-service-area:focus h5 {
-    color: blue;
+    color: #1C418C;
 }
 
 .single-cool-fact {
@@ -2392,7 +2453,7 @@ img {
 .single-cool-fact .scf-text h2 {
     font-size: 48px;
     margin-bottom: 20px;
-    color: blue;
+    color: #1C418C;
     font-weight: 500;
 }
 
@@ -2474,7 +2535,7 @@ img {
     -webkit-transition-duration: 500ms;
     -o-transition-duration: 500ms;
     transition-duration: 500ms;
-    background-color: blue;
+    background-color: #1C418C;
     color: #ffffff;
 }
 
@@ -2511,7 +2572,7 @@ img {
 
 .single-skils-area .skills-text span {
     font-size: 48px;
-    color: blue;
+    color: #1C418C;
     font-weight: 600;
 }
 
@@ -2530,7 +2591,7 @@ img {
 }
 
 .pixel-tabs-content .nav-tabs .nav-link {
-    background-color: blue;
+    background-color: #1C418C;
     padding: 0 20px;
     height: 48px;
     line-height: 50px;
@@ -2749,8 +2810,7 @@ img {
     position: relative;
     width: 80%;
     height: 90%;
-    padding: 4.8vw;
-    margin: 1vw auto 0;
+    margin: 0 auto;
 }
 
 .circle-container a {
@@ -2774,6 +2834,7 @@ a[data-title]:hover::after {
     top: -18%;
     align-items: center;
     justify-content: center;
+    font-size: 100%;
 }
 
 a[data-title2]:hover::after {
@@ -2785,7 +2846,7 @@ a[data-title2]:hover::after {
 }
 
 .circle-container a:hover {
-    border-color: blue;
+    border-color: #1C418C;
 }
 
 .circle-container img {
@@ -2999,6 +3060,44 @@ a[data-title2]:hover::after {
     }
 }
 
+.col-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+    max-width: 10%;
+    max-height: 7%;
+}
+
+@media (max-width: 976px) {
+    .col-3 {
+        display: flex;
+        -ms-flex: 0 0 33%;
+        flex: 0 0 33%;
+        max-width: 60%;
+        max-height: 60%;
+    }
+}
+
+@media (max-width: 1200px) and (min-width:976px) {
+    .col-3 {
+        display: flex;
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 60%;
+        max-height: 60%;
+    }
+    .single-team-member .hover-text h6 {
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: -200px;
+        color: #ffffff;
+        position: relative;
+        display: block;
+        background-color: black;
+        height: 100%;
+    }
+}
+
 .colab {
     justify-content: center;
     align-items: center;
@@ -3149,11 +3248,11 @@ img {
 }
 
 .botonesNP:hover {
-    border-color: blue;
+    border-color: #1C418C;
 }
 
 .botonesNP {
-    border: 3px solid;
+    border: 2px solid;
 }
 
 
