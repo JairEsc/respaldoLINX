@@ -4,7 +4,7 @@
 
     // :: 1.0 Preloader Active Code
     browserWindow.on('load', function() {
-        $('.preloader').delay(100).fadeOut('slow', function() {
+        $('.preloader').delay(0).fadeOut('slow', function() {
             $(this).remove();
         });
     });
@@ -213,15 +213,17 @@ for (var i = 0; i < lineas_ocultas.length; i++) {
 for (var i = 0; i < img_ocultas.length; i++) {
     img_porID.push(document.getElementById("deg" + (40 * i).toString()))
 }
+
 // Get the button that opens the modal
 var btnAdmin = document.getElementById("admin");
 var btnCirculoCentral = document.getElementById("CirculoCentral");
+var historial = document.getElementById("historial");
 var btnSearch = document.getElementById("searchBtn");
 var searchInput = document.getElementById("searchInput");
-var string;
+var colab_actual = "";
 var anterior = document.getElementById("anterior");
 var siguiente = document.getElementById("siguiente");
-
+var galeria_pag = 0;
 // Get the <span> element that closes the modal
 var spanColab = document.getElementsByClassName("close")[1];
 var spanAdmin = document.getElementsByClassName("close")[0];
@@ -240,8 +242,8 @@ var json_deg = [{ 'deg': 'deg0', 'img': '/linx/img/logos/teams/ANALISIS.jpg', 't
 
 var json_miembros = [{ 'area': 'Análisis Térmico', 'miembros': [{ 'nombre': 'PABLO CABRERA', 'img': 'linx/img/logos/teams/ÁREA DE MECÁNICA- ANÁLISIS TÉRMICO PABLO CABRERA/PABLO CABRERA.png', 'carrera': 'Licenciado en Física' }, { 'nombre': 'Espinosa Hernandez Allan Ricardo', 'img': 'linx/img/logos/teams/ÁREA DE MECÁNICA- ANÁLISIS TÉRMICO PABLO CABRERA/Allan Ricardo Espinosa Hernandez.jpg', 'carrera': 'Ingenieria Mecánica' }] },
     { 'area': 'Electricidad', 'miembros': [{ 'nombre': 'MARCO CARBAJAL', 'img': 'linx/img/logos/teams/ÁREA DE ELECTRÓNICA- POTENCIA-MARCO CARBAJAL/MARCO CARBAJAL.jpeg', 'carrera': 'Maestro en Ciencias de Ingeniería' }] },
-    { 'area': 'Investigación', 'miembros': [{ 'nombre': 'ALDO ROMÁN', 'img': 'linx/img/logos/teams/ÁREA DE INVESTIGACIÓN-ALDO ROMÁN/ALDO ROMÁN.jpeg', 'carrera': 'Licenciado en Física ' }, { 'nombre': 'Alejandra Ibarra Morales', 'img': 'linx/img/logos/teams/ÁREA DE INVESTIGACIÓN-ALDO ROMÁN/Alejandra Ibarra Morales.jpg', 'carrera': 'Rayos cósmicos ' }] },
-    { 'area': 'Manufactura', 'miembros': [{ 'nombre': 'ERNESTO LÓPEZ', 'img': 'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/ERNESTO LÓPEZ.jpeg', 'carrera': 'Ingeniero en Mecatrónica' }, { 'nombre': 'Cabrera García Lizbet Gisela', 'img': 'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/Lizbet Gisela Cabrera Garcia.jpg', 'carrera': 'Ingeniería Aeronáutica' }, { 'nombre': 'González Maravilla Eduardo David', 'img': 'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/Eduardo David Gonzalez Maravilla.jpg', 'carrera': 'Ingeniería Mecánica' }, { 'nombre': 'Rámirez Castañon Jorge Francisco', 'img': 'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/Jorge Francisco Ramírez Castañón.jpg', 'carrera': 'Ingeniería Mecatrónica' }, { 'nombre': 'Jiménez Rincon Juana Ines', 'img': 'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/Juana Inés Jiménez Rincón.jpg', 'carrera': 'Física' }] },
+    { 'area': 'Investigación', 'miembros': [{ 'nombre': 'ALDO ROMÁN', 'img': 'linx/img/logos/teams/ÁREA DE INVESTIGACIÓN-ALDO ROMÁN/ALDO ROMÁN.jpeg', 'carrera': 'Licenciado en Física ' }, { 'nombre': 'Alejandra Ibarra Morales', 'img': 'linx/img/logos/teams/ÁREA DE INVESTIGACIÓN-ALDO ROMÁN/Alejandra Ibarra Morales.jpg', 'carrera': 'Rayos cósmicos ' }, { 'nombre': 'Barragan Mayet Heber Octavio', 'img': 'linx/img/logos/teams/ÁREA DE INVESTIGACIÓN-ALDO ROMÁN/Barragan Mayet Heber Octavio.png', 'carrera': 'Proceso de Metalización' }] },
+    { 'area': 'Manufactura', 'miembros': [{ 'nombre': 'ERNESTO LÓPEZ', 'img': 'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/ERNESTO LÓPEZ.jpeg', 'carrera': 'Ingeniero en Mecatrónica' }, { 'nombre': 'Jennifer Metzin Monroy González', 'img': 'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/Jennifer Metzin Monroy González.jpg', 'carrera': 'Diseño Industrial' }, { 'nombre': 'Cabrera García Lizbet Gisela', 'img': 'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/Lizbet Gisela Cabrera Garcia.jpg', 'carrera': 'Ingeniería Aeronáutica' }, { 'nombre': 'González Maravilla Eduardo David', 'img': 'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/Eduardo David Gonzalez Maravilla.jpg', 'carrera': 'Ingeniería Mecánica' }, { 'nombre': 'Rámirez Castañon Jorge Francisco', 'img': 'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/Jorge Francisco Ramírez Castañón.jpg', 'carrera': 'Ingeniería Mecatrónica' }, { 'nombre': 'Jiménez Rincon Juana Ines', 'img': 'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/Juana Inés Jiménez Rincón.jpg', 'carrera': 'Física' }], 'historial': [{ 'nombre': 'Hernandez Capulin Raúl', 'img': 'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/historial/1.jpg', 'carrera': 'Licenciatura en Química' }, { 'nombre': 'Marco Daniel Díaz Banda', 'img': 'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/historial/2.jpg', 'carrera': 'Ingeniería mecánica' }, { 'nombre': 'Acuña Apreza Jonathan', 'img': 'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/historial/3.jpg', 'carrera': 'Ingeniería mecánica' }, { 'nombre': 'Romo Aguilar Fatima', 'img': 'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/historial/4.jpg', 'carrera': 'Diseño Industrial' }, { 'nombre': '', 'img': 'linx/img/logos/teams/MANUFACTURA Y DISEÑO- ERNESTO LÓPEZ/historial/5.png', 'carrera': '' }] },
     { 'area': 'Marketing', 'miembros': [{ 'nombre': 'LUISA FLORES', 'img': 'linx/img/logos/teams/ÁREA DE MARKETING DE TALENTO-LUISA FLORES/LUISA FLORES.jpg', 'carrera': 'Licenciada en Psicología' }, { 'nombre': 'Reyes Franco Carlos Augusto', 'img': 'linx/img/logos/teams/ÁREA DE MARKETING DE TALENTO-LUISA FLORES/Reyes Franco Carlos Augusto.jpeg', 'carrera': 'Arquitectura' }, { 'nombre': 'Escobar Sánchez Jair', 'img': 'linx/img/logos/teams/ÁREA DE MARKETING DE TALENTO-LUISA FLORES/Jair Escobar Sánchez.jpg', 'carrera': 'Matemático' }] },
     { 'area': 'Planeación', 'miembros': [{ 'nombre': 'CLAUDIA PATRICIO', 'img': 'linx/img/logos/teams/ÁREA DE PLANEACIÓN-CLAUDIA PATRICIO/CLAUDIA PATRICIO.jpg', 'carrera': 'Ingeniera Industrial' }] },
     { 'area': 'Potencia', 'miembros': [{ 'nombre': 'JUAN CARLOS SÁNCHEZ ', 'img': 'linx/img/logos/teams/INSTRUMENTACIÓN- JUAN CARLOS SÁNCHEZ/JUAN CARLOS SÁNCHEZ.jpeg', 'carrera': 'Técnico Académico Asociado' }, { 'nombre': 'Cortés Rosales José Francisco', 'img': 'linx/img/logos/teams/INSTRUMENTACIÓN- JUAN CARLOS SÁNCHEZ/José Francisco Cortes Rosales.JPG', 'carrera': 'Ingeniería Robótica Industrial' }, { 'nombre': 'Martínez Jiménez Mayra', 'img': 'linx/img/logos/teams/INSTRUMENTACIÓN- JUAN CARLOS SÁNCHEZ/Mayra Martínez Jiménez.jpeg', 'carrera': 'Ingeniería en Comunicaciones y Electrónica' }] },
@@ -268,6 +270,40 @@ function limpiarMiembros() {
         miembros_porID_fotos[i].src = '';
         miembros_porID_fotos[i].style.background = 'black';
         miembros_porID[i].parentNode.parentNode.classList.add('single-team-member')
+    }
+}
+
+function llenarMiembros(json) {
+    if (json.length % 2 == 0) {
+        miembros_porID[0].childNodes[1].innerHTML = ""
+        miembros_porID[0].childNodes[3].innerHTML = ""
+        miembros_porID_fotos[0].style.background = 'black';
+        miembros_porID[0].parentNode.parentNode.classList.remove('single-team-member')
+        for (var i = 1; i < miembros_porID.length; i++) {
+            if (i < json.length + 1) {
+                miembros_porID[i].childNodes[1].innerHTML = json[i - 1].nombre
+                miembros_porID[i].childNodes[3].innerHTML = json[i - 1].carrera
+                miembros_porID_fotos[i].src = '/' + json[i - 1].img
+            } else {
+                miembros_porID[i].childNodes[1].innerHTML = ""
+                miembros_porID[i].childNodes[3].innerHTML = ""
+                miembros_porID_fotos[i].style.background = 'black';
+                miembros_porID[i].parentNode.parentNode.classList.remove('single-team-member')
+            }
+        }
+    } else {
+        for (var i = 0; i < miembros_porID.length; i++) {
+            if (i < json.length) {
+                miembros_porID[i].childNodes[1].innerHTML = json[i].nombre
+                miembros_porID[i].childNodes[3].innerHTML = json[i].carrera
+                miembros_porID_fotos[i].src = '/' + json[i].img
+            } else {
+                miembros_porID[i].childNodes[1].innerHTML = ""
+                miembros_porID_fotos[i].style.background = 'black';
+                miembros_porID[i].childNodes[3].innerHTML
+                miembros_porID[i].parentNode.parentNode.classList.remove('single-team-member')
+            }
+        }
     }
 }
 
@@ -305,16 +341,44 @@ if (siguiente) {
 
     }
 }
-$(".botonesNP").on("click", function(event) {
-    VISION_json.forEach((item) => {
-        document.getElementById(item.id).childNodes[1].innerHTML = ""
-
-        if (item.id == ((event.target).innerText.toLowerCase()).normalize('NFD').replace(/[\u0300-\u036f]/g, "")) {
-            document.getElementById(item.id).childNodes[1].innerHTML = item.text;
-            console.log(document.getElementById(item.id).childNodes[1])
+$("#historial").on("click", () => {
+    limpiarMiembros();
+    json_miembros.forEach((elem, value) => {
+        //arreglo de miembros, checa paridad. llena miembros_porID(fijo).
+        if (elem.area == modalColabTITLE.innerHTML) {
+            console.log(elem.historial)
+            console.log(elem.miembros)
+            llenarMiembros(elem.historial)
         }
     })
+
+
 })
+$(".botonesNP").on("click", function(event) {
+    VISION_json.forEach((item) => {
+        try {
+            document.getElementById(item.id).childNodes[1].innerHTML = ""
+        } catch (error) {}
+        if (item.id == ((event.target).innerText.toLowerCase()).normalize('NFD').replace(/[/u0300-/u036f]/g, "")) {
+            document.getElementById(item.id).childNodes[1].innerHTML = item.text;
+            console.log(document.getElementById(item.id).childNodes[1])
+        } else {}
+    })
+
+    if (event.target.id == 'galeriaN') { ///click next
+        galeria_pag += 1
+        for (var i = 0; i < 8; i++) {
+            document.getElementById("galeria" + ((i % 8) + 1).toString()).style.backgroundImage = "url(/linx/img/media/" + (8 * galeria_pag + i + 1).toString() + ".jpg)";
+        }
+    }
+    if (event.target.id == 'galeriaP') { ///click prev
+        galeria_pag -= 1
+        for (var i = 0; i < 8; i++) {
+            document.getElementById("galeria" + ((i % 8) + 1).toString()).style.backgroundImage = "url(/linx/img/media/" + (8 * galeria_pag + i + 1).toString() + ".jpg)";
+        }
+    }
+})
+
 $(".colab").on('click', function(event) {
     json_deg.forEach((item, value) => {
         if (item.deg == event.target.id || item.deg == event.target.parentNode.id) {
@@ -322,44 +386,14 @@ $(".colab").on('click', function(event) {
             modalColabIMG.src = item.img
             modalColabTITLE.innerText = item.title
             json_miembros.forEach((elem, value) => {
+                //arreglo de miembros, checa paridad. llena miembros_porID(fijo).
                 if (elem.area == item.title) {
                     console.log(elem)
-                    if (elem.miembros.length % 2 == 0) {
-                        miembros_porID[0].childNodes[1].innerHTML = ""
-                        miembros_porID[0].childNodes[3].innerHTML = ""
-                        miembros_porID_fotos[0].style.background = 'black';
-                        miembros_porID[0].parentNode.parentNode.classList.remove('single-team-member')
-                        for (var i = 1; i < miembros_porID.length; i++) {
-                            if (i < elem.miembros.length + 1) {
-                                miembros_porID[i].childNodes[1].innerHTML = elem.miembros[i - 1].nombre
-                                miembros_porID[i].childNodes[3].innerHTML = elem.miembros[i - 1].carrera
-                                miembros_porID_fotos[i].src = '/' + elem.miembros[i - 1].img
-                            } else {
-                                miembros_porID[i].childNodes[1].innerHTML = ""
-                                miembros_porID[i].childNodes[3].innerHTML = ""
-                                miembros_porID_fotos[i].style.background = 'black';
-                                miembros_porID[i].parentNode.parentNode.classList.remove('single-team-member')
-                            }
-                        }
-                    } else {
-                        for (var i = 0; i < miembros_porID.length; i++) {
-                            if (i < elem.miembros.length) {
-                                miembros_porID[i].childNodes[1].innerHTML = elem.miembros[i].nombre
-                                miembros_porID[i].childNodes[3].innerHTML = elem.miembros[i].carrera
-                                miembros_porID_fotos[i].src = '/' + elem.miembros[i].img
-                            } else {
-                                miembros_porID[i].childNodes[1].innerHTML = ""
-                                miembros_porID_fotos[i].style.background = 'black';
-                                miembros_porID[i].childNodes[3].innerHTML
-                                miembros_porID[i].parentNode.parentNode.classList.remove('single-team-member')
-                            }
-                        }
-                    }
+                    llenarMiembros(elem.miembros)
                 }
             })
         }
     })
-
     modalColab.style.display = "block";
     modalColab.style.zIndex = 2
 });
@@ -456,7 +490,6 @@ btnSearch.onclick = function() {
             document.getElementById("muestran").innerHTML = "No se encontraron resultados para '" + searchInput.value + "'";
         }
     }
-
 }
 document.onclick = function() {
         if (searchInput.matches(':focus') == false) {
