@@ -737,6 +737,12 @@ pre code {
     max-width: 8.333333%
 }
 
+.col-01 {
+    -ms-flex: 0 0 4.15%;
+    flex: 0 0 4.15%;
+    max-width: 4.15%
+}
+
 .col-2 {
     -ms-flex: 0 0 16.666667%;
     flex: 0 0 16.666667%;
@@ -9238,8 +9244,8 @@ a.text-dark:hover {
 
 @media print {
     *,
-    ::after,
-    ::before {
+     ::after,
+     ::before {
         text-shadow: none!important;
         box-shadow: none!important
     }
@@ -18544,8 +18550,8 @@ a.text-dark:hover {
 
 @media print {
     *,
-    ::after,
-    ::before {
+     ::after,
+     ::before {
         text-shadow: none!important;
         box-shadow: none!important
     }

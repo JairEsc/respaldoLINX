@@ -317,11 +317,15 @@ que_es_linx = document.getElementById("que_es_linx");
 que_es_linx_text = document.getElementById("que_es_linx_text");
 
 $("#que_es_linx").on("click", () => {
-    if (typeof $("#que_es_linx_text").attr("hidden") !== 'undefined' && $("#que_es_linx_text").attr("hidden") !== false) {
-        que_es_linx.style.transform = "rotate(90deg)";
+    if (typeof $("#que_es_linx_text").attr("hidden") !== 'undefined' && $("#que_es_linx_text").attr("hidden") !== false) { // NO esta visible
+        que_es_linx.classList.remove("fa-chevron-down")
+        que_es_linx.classList.add("fa-chevron-up")
+
         que_es_linx_text.removeAttribute("hidden")
     } else {
-        que_es_linx.style.transform = "rotate(-90deg)";
+        que_es_linx.classList.remove("fa-chevron-up")
+
+        que_es_linx.classList.add("fa-chevron-down")
         que_es_linx_text.setAttribute("hidden", "hidden")
     }
 

@@ -1749,6 +1749,11 @@ img {
     color: #1C418C;
 }
 
+.nextPrev:hover {
+    border-color: #1C418C;
+    color: #1C418C;
+}
+
 .footer-area .copywrite-area {
     position: relative;
     border-top: 2px solid #ffffff;
@@ -3256,12 +3261,8 @@ img {
     height: 123px;
 }
 
-.botonesNP:hover {
-    border-color: #1C418C;
-}
-
 .botonesNP {
-    border: 2px solid transparent;
+    border: 0px solid transparent;
 }
 
 .botonesVision {
