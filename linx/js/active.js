@@ -224,6 +224,7 @@ var colab_actual = "";
 var anterior = document.getElementById("anterior");
 var siguiente = document.getElementById("siguiente");
 var galeria_pag = 0;
+var historial_activo = false;
 // Get the <span> element that closes the modal
 var spanColab = document.getElementsByClassName("close")[1];
 var spanAdmin = document.getElementsByClassName("close")[0];
@@ -307,19 +308,25 @@ function llenarMiembros(json) {
     }
 }
 
-que_es_linx = document.getElementById("que_es_linx");
 VISION = [document.getElementById("mision"), document.getElementById("vision"), document.getElementById("valores")];
-VISION_json = [{ 'id': 'mision', 'text': 'LINX, es un laboratorio académico, multidisciplinario, multidimensional que, a través de sus investigaciones como sus proyectos, tiene el compromiso de formar los recursos humanos, generar el conocimiento técnico y crear la infraestructura específica que el país necesita para su efectiva participación de la exploración del espacio exterior, tanto con fines científicos, como tecnológicos o sociales.', 'img': '' },
-    { 'id': 'vision', 'text': 'LINX pretende aportar a la sociedad, información, innovación, transformación descriptiva y de excelencia, apoyándose en la tecnología y la ciencia, pero sin dejar de lado lo humano, inspirando a sus colaboradores a ser mejoresprofesionistas, personas y aportadores de conocimiento; dicho compromiso, es firme para con la comunidad universitaria, la sociedad y el país.', 'img': '' },
-    { 'id': 'valores', 'text': 'Pasión: Disfrutar, poner entusiasmo y motivación a tu trabajo. Honestidad: Manejarse con congruencia, en lo que se piensa, siente, dice y hace. Compromiso: Los objetivos del laboratorio también son tuyos, da todo para conseguirlos. Innovación: Deseo de una permanente renovación, cambiar, evolucionar, adaptarse a lo que el mundo te demande. Excelencia: Buscar la perfección en todo lo que hacemos por mínimo que sea. Eficiencia: Capacidad para realizar nuestro trabajo y cumplir adecuadamente nuestros objetivos.', 'img': '' }
+VISION_json = [{ 'id': 'Misión', 'text': 'LINX, es un laboratorio académico, multidisciplinario, multidimensional que, a través de sus investigaciones como sus proyectos, tiene el compromiso de formar los recursos humanos, generar el conocimiento técnico y crear la infraestructura específica que el país necesita para su efectiva participación de la exploración del espacio exterior, tanto con fines científicos, como tecnológicos o sociales.', 'img': '' },
+    { 'id': 'Visión', 'text': 'LINX pretende aportar a la sociedad, información, innovación, transformación descriptiva y de excelencia, apoyándose en la tecnología y la ciencia, pero sin dejar de lado lo humano, inspirando a sus colaboradores a ser mejoresprofesionistas, personas y aportadores de conocimiento; dicho compromiso, es firme para con la comunidad universitaria, la sociedad y el país.', 'img': '' },
+    { 'id': 'Valores', 'text': 'Pasión: Disfrutar, poner entusiasmo y motivación a tu trabajo. Honestidad: Manejarse con congruencia, en lo que se piensa, siente, dice y hace. Compromiso: Los objetivos del laboratorio también son tuyos, da todo para conseguirlos. Innovación: Deseo de una permanente renovación, cambiar, evolucionar, adaptarse a lo que el mundo te demande. Excelencia: Buscar la perfección en todo lo que hacemos por mínimo que sea. Eficiencia: Capacidad para realizar nuestro trabajo y cumplir adecuadamente nuestros objetivos.', 'img': '' }
 ]
+que_es_linx = document.getElementById("que_es_linx");
 que_es_linx_text = document.getElementById("que_es_linx_text");
-if ((que_es_linx && que_es_linx_text)) {
-    que_es_linx.onclick = function() {
+
+$("#que_es_linx").on("click", () => {
+    if (typeof $("#que_es_linx_text").attr("hidden") !== 'undefined' && $("#que_es_linx_text").attr("hidden") !== false) {
         que_es_linx.style.transform = "rotate(90deg)";
         que_es_linx_text.removeAttribute("hidden")
+    } else {
+        que_es_linx.style.transform = "rotate(-90deg)";
+        que_es_linx_text.setAttribute("hidden", "hidden")
     }
-}
+
+})
+
 if (siguiente) {
     var colmena = ['La misión COLMENA1 es pionera en su tipo a nivel mundial. Tiene por objetivo desarrollar capacidades espaciales únicas, que le permitirán a México realizar aportaciones en pie de igualdad con otras naciones en el nuevo mercado de minería espacial que se desarrollará en las próximas décadas en lunas y asteroides del sistema solar interno.', 'Un solo asteroide de 1 km de diámetro, por ejemplo, se estima que tenga alrededor de un trillón de dólares en platino. La Luna tiene agua, que puedenconvertirse en Hidrógeno y Oxígeno para ser usado como combustible de cohetes y Helio-3, que es el combustible ideal para reactores de fusión y es inexistente en la Tierra.']
     var colmena_en_uso = 0;
@@ -336,35 +343,35 @@ if (siguiente) {
             colmena_descr.style.opacity = 1;
             colmena_img.style.opacity = 1;
         }, 1000);
-
-
-
     }
 }
 $("#historial").on("click", () => {
+    //bug: tengo que dar doble click la primera vez.
+    historial_activo = !historial_activo;
     limpiarMiembros();
     json_miembros.forEach((elem, value) => {
-        //arreglo de miembros, checa paridad. llena miembros_porID(fijo).
         if (elem.area == modalColabTITLE.innerHTML) {
-            console.log(elem.historial)
-            console.log(elem.miembros)
-            llenarMiembros(elem.historial)
+            //cambiar formato para las fotos, quizás agregar espacios. Luego llenar 
+            //esos espacios (otra funcion)
+            if (historial_activo == false) {
+                llenarMiembros(elem.historial)
+            } else {
+                llenarMiembros(elem.miembros)
+            }
         }
     })
-
-
+})
+$(".botonesVision").on("click", function(event) {
+    VISION_json.forEach((item) => {
+        document.getElementById(item.id).childNodes[1].innerHTML = ""
+        document.getElementById(item.id).classList.remove("botonesVisionGordito")
+        if (item.id == ((event.target).innerText)) {
+            document.getElementById(item.id).childNodes[1].innerHTML = item.text;
+            event.target.classList.add("botonesVisionGordito")
+        }
+    })
 })
 $(".botonesNP").on("click", function(event) {
-    VISION_json.forEach((item) => {
-        try {
-            document.getElementById(item.id).childNodes[1].innerHTML = ""
-        } catch (error) {}
-        if (item.id == ((event.target).innerText.toLowerCase()).normalize('NFD').replace(/[/u0300-/u036f]/g, "")) {
-            document.getElementById(item.id).childNodes[1].innerHTML = item.text;
-            console.log(document.getElementById(item.id).childNodes[1])
-        } else {}
-    })
-
     if (event.target.id == 'galeriaN') { ///click next
         galeria_pag += 1
         for (var i = 0; i < 8; i++) {
@@ -386,9 +393,7 @@ $(".colab").on('click', function(event) {
             modalColabIMG.src = item.img
             modalColabTITLE.innerText = item.title
             json_miembros.forEach((elem, value) => {
-                //arreglo de miembros, checa paridad. llena miembros_porID(fijo).
                 if (elem.area == item.title) {
-                    console.log(elem)
                     llenarMiembros(elem.miembros)
                 }
             })
@@ -397,49 +402,48 @@ $(".colab").on('click', function(event) {
     modalColab.style.display = "block";
     modalColab.style.zIndex = 2
 });
-if (btnCirculoCentral) {
-    btnCirculoCentral.onclick = function() {
-        if (breathingBtn.classList.contains("btnBreath")) {
-            breathingBtn.classList.remove("btnBreath")
-            breathingBtn.style.zIndex = 1;
-            //for(var i=0; i<lineas_ocultas.length;i++){
-            //  lineas_ocultas[i].classList.add("line"+str(45*i))
-            //lineas_ocultas[i].classList.remove("ocultos")
-            //}
-            var name = ""
-            for (var i = 0; i < lineas_porID.length; i++) {
-                name = 'line' + (40 * i).toString();
-                lineas_porID[i].classList.add(name)
-                lineas_porID[i].style.zIndex = 0;
-                lineas_porID[i].classList.remove("Locultos")
-            }
-            for (var i = 0; i < img_porID.length; i++) {
-                name = 'deg' + (40 * i).toString();
-                img_porID[i].classList.add(name)
-                img_porID[i].style.zIndex = 0;
-                img_porID[i].classList.remove("Cocultos")
-            }
-        } else {
-            breathingBtn.classList.add("btnBreath")
-
-            var name = ""
-            for (var i = 0; i < lineas_porID.length; i++) {
-                name = 'line' + (40 * i).toString();
-                lineas_porID[i].classList.remove(name)
-                lineas_porID[i].style.zIndex = -1;
-                lineas_porID[i].classList.add("Locultos")
-            }
-            for (var i = 0; i < img_porID.length; i++) {
-                name = 'deg' + (40 * i).toString();
-                img_porID[i].classList.remove(name)
-                img_porID[i].style.zIndex = 0;
-                img_porID[i].classList.add("Cocultos")
-            }
+$("#CirculoCentral").on('click', () => {
+    if (breathingBtn.classList.contains("btnBreath")) {
+        breathingBtn.classList.remove("btnBreath")
+        breathingBtn.style.zIndex = 1;
+        //for(var i=0; i<lineas_ocultas.length;i++){
+        //  lineas_ocultas[i].classList.add("line"+str(45*i))
+        //lineas_ocultas[i].classList.remove("ocultos")
+        //}
+        var name = ""
+        for (var i = 0; i < lineas_porID.length; i++) {
+            name = 'line' + (40 * i).toString();
+            lineas_porID[i].classList.add(name)
+            lineas_porID[i].style.zIndex = 0;
+            lineas_porID[i].classList.remove("Locultos")
         }
+        for (var i = 0; i < img_porID.length; i++) {
+            name = 'deg' + (40 * i).toString();
+            img_porID[i].classList.add(name)
+            img_porID[i].style.zIndex = 0;
+            img_porID[i].classList.remove("Cocultos")
+        }
+    } else {
+        breathingBtn.classList.add("btnBreath")
 
-
+        var name = ""
+        for (var i = 0; i < lineas_porID.length; i++) {
+            name = 'line' + (40 * i).toString();
+            lineas_porID[i].classList.remove(name)
+            lineas_porID[i].style.zIndex = -1;
+            lineas_porID[i].classList.add("Locultos")
+        }
+        for (var i = 0; i < img_porID.length; i++) {
+            name = 'deg' + (40 * i).toString();
+            img_porID[i].classList.remove(name)
+            img_porID[i].style.zIndex = 0;
+            img_porID[i].classList.add("Cocultos")
+        }
     }
-}
+
+
+
+})
 btnSearch.onclick = function() {
     searchInput.removeAttribute("hidden");
     for (var i = 0; i < 100; i++) {

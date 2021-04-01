@@ -224,7 +224,7 @@ img {
     top: 0px;
     width: 80%;
     height: 80%;
-    background: url(img/videos/GIF-LINX2.gif);
+    background: url(/linx/img/media/GIF-LINX2.gif);
     background-position: center;
 }
 
@@ -790,6 +790,9 @@ img {
     .hero-area .owl-next {
         font-size: 18px;
     }
+    .reclutamiento {
+        font-size: 20pt;
+    }
 }
 
 @media only screen and (max-width: 767px) {
@@ -797,6 +800,9 @@ img {
     .hero-area .owl-next {
         left: 20px;
         font-size: 16px;
+    }
+    .reclutamiento {
+        font-size: 100%
     }
 }
 
@@ -1197,7 +1203,7 @@ img {
 }
 
 .btnRotate {
-    width: 5%;
+    width: 5vw;
     transform: rotate(270deg);
     -webkit-transition-duration: 500ms;
     -o-transition-duration: 500ms;
@@ -1867,7 +1873,7 @@ img {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(104, 139, 254, 0.75);
+    background-color: #184a8c48
 }
 
 .breadcrumb-area .breadcrumb-content {
@@ -3047,19 +3053,19 @@ a[data-title2]:hover::after {
 
 @keyframes brath {
     0% {
-        -webkit-transform: scale(0.7);
-        -ms-transform: scale(0.7);
-        transform: scale(0.7);
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
     }
     50% {
-        -webkit-transform: scale(1.2);
-        -ms-transform: scale(1.2);
-        transform: scale(1.2);
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
     }
     100% {
-        -webkit-transform: scale(0.7);
-        -ms-transform: scale(0.7);
-        transform: scale(0.7);
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
     }
 }
 
@@ -3255,7 +3261,25 @@ img {
 }
 
 .botonesNP {
+    border: 2px solid transparent;
+}
+
+.botonesVision {
     border: 2px solid;
+}
+
+.botonesVision:hover {
+    border: 2px solid;
+    border-color: #1C418C;
+}
+
+.botonesVision:active {
+    border-color: #1C418C;
+}
+
+.botonesVisionGordito {
+    transform: scale(1.2);
+    transition: linear 1s;
 }
 
 .bordeBlanco {
@@ -3263,6 +3287,11 @@ img {
     /* this allows you to adjust the thickness */
     border-style: solid;
     border-color: white
+}
+
+.reclutamiento {
+    color: white;
+    text-align: center;
 }
 
 
