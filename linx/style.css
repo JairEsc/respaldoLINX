@@ -29,7 +29,7 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 h1,
@@ -47,7 +47,7 @@ h6 {
 p {
     font-family: "Poppins", sans-serif;
     color: #969696;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 2;
     font-weight: 400;
 }
@@ -491,7 +491,7 @@ img {
     color: #ffffff;
     border-radius: 0;
     padding: 0 35px 0 20px;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 48px;
     font-weight: 600;
     text-transform: uppercase;
@@ -671,7 +671,7 @@ img {
 .header-area .pixel-main-menu .classy-navbar .classynav ul li ul li a {
     color: #212121;
     font-size: 14px;
-    padding: 0 20px;
+    padding: 0 5px;
 }
 
 .header-area .top-social-info {

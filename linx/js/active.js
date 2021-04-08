@@ -181,7 +181,9 @@
     if (browserWindow.width() > 767) {
         new WOW().init();
     }
-
+    $(document).ready(function() {
+        $('#header').load("footer.html");
+    });
 })(jQuery);
 //codigo propio;
 
@@ -258,11 +260,12 @@ var json_miembros = [{ 'area': 'Análisis Térmico', 'miembros': [{ 'nombre': 'P
 ]
 
 
-searchInput.onkeyup = ((ev) => {
+$("#searchInput").onkeyup = ((ev) => {
     if (ev.key == 'Enter') {
         btnSearch.onclick();
     }
 })
+
 
 function limpiarMiembros() {
     for (var i = 0; i < miembros_porID.length; i++) {

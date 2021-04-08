@@ -613,8 +613,8 @@ pre code {
 
 .container-fluid {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0px;
+    padding-left: 0px;
     margin-right: auto;
     margin-left: auto
 }
@@ -624,8 +624,8 @@ pre code {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px
+    margin-right: 0px;
+    margin-left: 0px
 }
 
 .no-gutters {
@@ -2487,7 +2487,7 @@ fieldset:disabled a.btn {
 
 .btn-primary.disabled,
 .btn-primary:disabled {
-    color: #fff;
+    color: black;
     background-color: #007bff;
     border-color: #007bff
 }
@@ -2497,7 +2497,7 @@ fieldset:disabled a.btn {
 .show>.btn-primary.dropdown-toggle {
     color: #fff;
     background-color: #0062cc;
-    border-color: #005cbf
+    border-color: #005cbf;
 }
 
 .btn-primary:not(:disabled):not(.disabled).active:focus,
@@ -2515,7 +2515,7 @@ fieldset:disabled a.btn {
 .btn-secondary:hover {
     color: #fff;
     background-color: #5a6268;
-    border-color: #545b62
+    border-color: #545b62;
 }
 
 .btn-secondary.focus,
@@ -9940,8 +9940,8 @@ pre code {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px
+    margin-right: 0px;
+    margin-left: 0px
 }
 
 .no-gutters {
